@@ -1,6 +1,6 @@
 {%- assign a = site.data.group.auditions -%}
 {%- if a.open -%}
 <div class="banner">
-  <p class="banner__text">{{ a.message }}{% if a.link != blank %} <a href="{{ a.link }}">{{ a.link_text | default: "Sign up" }}</a>{% endif %}</p>
+  <p class="banner__text">{{ a.message }}{% if a.link.size > 0 %} <a href="{{ a.link }}">{{ a.link_text | default: "Sign up" }}</a>{% endif %}</p>
 </div>
 {%- endif -%}

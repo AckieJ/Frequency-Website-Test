@@ -24,7 +24,7 @@
   <div class="video__thumb video__thumb--empty" aria-hidden="true">{% include mark.html %}</div>
   {%- endif %}
   <h3 class="video__title">{{ include.video.title }}</h3>
-  {%- if include.video.note != blank %}
+  {%- if include.video.note.size > 0 %}
   <p class="video__note">{{ include.video.note }}</p>
   {%- endif %}
 </article>

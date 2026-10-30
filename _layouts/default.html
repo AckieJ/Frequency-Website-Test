@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ g.name | escape }}">
   <meta property="og:description" content="{{ g.tagline | escape }}">
-  {%- if g.hero_photo != blank and site.url != blank %}
+  {%- if g.hero_photo.size > 0 and site.url.size > 0 %}
   <meta property="og:image" content="{{ '/assets/images/hero/' | append: g.hero_photo | absolute_url }}">
   {%- endif %}
 

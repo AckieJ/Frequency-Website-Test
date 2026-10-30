@@ -6,11 +6,11 @@ title: The Frequency
 description: "The Frequency is an a cappella group at UC San Diego."
 lang: en
 
-# Fill these in after you turn on GitHub Pages (see docs/PUBLISHING.md).
-# url is only used for link previews when the site is shared.
-url: ""        # for example "https://thefrequency.github.io"
-baseurl: ""    # leave empty for username.github.io or a custom domain;
-               # use "/repo-name" if the site lives at username.github.io/repo-name
+# Where the site lives. This is already set for the GitHub repository
+# AckieJ/Frequency-Website-Test. If you move to a custom domain (like
+# frequency.org), change baseurl to "" and url to the new address.
+url: "https://ackiej.github.io"
+baseurl: "/Frequency-Website-Test"
 
 markdown: kramdown
 permalink: pretty

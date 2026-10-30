@@ -1,11 +1,30 @@
 {%- assign g = site.data.group -%}
+{%- assign home = '/' | relative_url -%}
 <footer class="site-footer on-dark">
-  <div class="wrap site-footer__in">
-    <p class="site-footer__name">{% include mark.html %} {{ g.name }}</p>
-    <ul class="site-footer__links">
-      {%- if g.email != blank %}<li><a href="mailto:{{ g.email }}">{{ g.email }}</a></li>{% endif -%}
-      {%- for s in g.socials %}{% if s.url != blank %}<li><a href="{{ s.url }}" rel="noopener">{{ s.name }}</a></li>{% endif %}{% endfor -%}
-    </ul>
-    <p class="site-footer__small">&copy; {{ site.time | date: "%Y" }} {{ g.name }}</p>
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <a class="brand" href="{{ home }}">{% include mark.html %}<span class="brand__name">{{ g.name }}</span></a>
+      <p>{{ g.tagline }}</p>
+    </div>
+    <nav aria-label="Footer">
+      <h2 class="footer__h">Explore</h2>
+      <ul class="footer__list">
+        <li><a href="{{ home }}">Home</a></li>
+        {%- if site.data.videos.size > 0 %}<li><a href="{{ home }}#watch">Watch</a></li>{% endif -%}
+        {%- if site.data.shows.size > 0 %}<li><a href="{{ home }}#shows">Shows</a></li>{% endif -%}
+        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        <li><a href="{{ '/about/' | relative_url }}#board">The board</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h2 class="footer__h">Connect</h2>
+      <ul class="footer__list">
+        {%- if g.email.size > 0 %}<li><a href="mailto:{{ g.email }}">{{ g.email }}</a></li>{% endif -%}
+        {%- for s in g.socials %}{% if s.url.size > 0 %}<li><a href="{{ s.url }}" rel="noopener">{{ s.name }}</a></li>{% endif %}{% endfor -%}
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__bar">
+    <p>&copy; {{ site.time | date: "%Y" }} {{ g.name }}. All rights reserved.</p>
   </div>
 </footer>

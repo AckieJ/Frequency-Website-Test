@@ -11,7 +11,7 @@ title: Home
   <div class="wrap hero__grid">
     <div class="hero__text">
       <div class="hero__logo">
-        {%- if g.logo != blank -%}
+        {%- if g.logo.size > 0 -%}
           <img src="{{ '/assets/images/' | append: g.logo | relative_url }}" alt="{{ g.name | escape }} logo">
         {%- else -%}
           {% include mark.html %}
@@ -21,7 +21,7 @@ title: Home
       <p class="hero__tagline">{{ g.tagline }}</p>
       <div class="hero__actions">
         {%- if videos.size > 0 %}<a class="btn btn--sun" href="#watch">Watch us sing</a>{% endif -%}
-        {%- if g.email != blank %}<a class="btn btn--ghost" href="#contact">Book us</a>{% endif -%}
+        {%- if g.email.size > 0 %}<a class="btn btn--ghost" href="#contact">Book us</a>{% endif -%}
       </div>
     </div>
     <div class="hero__photo">
@@ -33,7 +33,7 @@ title: Home
   </div>
 </section>
 
-{%- if g.intro != blank %}
+{%- if g.intro.size > 0 %}
 <section class="section">
   <div class="wrap">
     <p class="lede lede--ink">{{ g.intro }}</p>
@@ -46,7 +46,7 @@ title: Home
   <div class="wrap">
     <header class="section__head">
       <h2>Watch</h2>
-      {%- if g.youtube_channel != blank %}
+      {%- if g.youtube_channel.size > 0 %}
       <a class="textlink" href="{{ g.youtube_channel }}" rel="noopener">All our videos on YouTube</a>
       {%- endif %}
     </header>
@@ -73,10 +73,10 @@ title: Home
         </time>
         <div class="show__body">
           <h3 class="show__title">{{ s.title }}</h3>
-          <p class="show__where">{{ s.venue }}{% if s.time != blank %}, {{ s.time }}{% endif %}</p>
-          {%- if s.note != blank %}<p class="show__note">{{ s.note }}</p>{% endif %}
+          <p class="show__where">{{ s.venue }}{% if s.time.size > 0 %}, {{ s.time }}{% endif %}</p>
+          {%- if s.note.size > 0 %}<p class="show__note">{{ s.note }}</p>{% endif %}
         </div>
-        {%- if s.link != blank %}
+        {%- if s.link.size > 0 %}
         <a class="btn btn--ink btn--small" href="{{ s.link }}" rel="noopener">{{ s.link_text | default: "Details" }}</a>
         {%- endif %}
       </li>
@@ -99,7 +99,7 @@ title: Home
       {%- for p in gallery %}
       <li class="gallery__item">
         {% include photo.html file=p.file folder="gallery" alt=p.alt class="gallery__img" %}
-        {%- if p.caption != blank and p.file != blank %}<span class="gallery__caption">{{ p.caption }}</span>{% endif %}
+        {%- if p.caption.size > 0 and p.file.size > 0 %}<span class="gallery__caption">{{ p.caption }}</span>{% endif %}
       </li>
       {%- endfor %}
     </ul>
@@ -107,12 +107,19 @@ title: Home
 </section>
 {%- endif %}
 
-{%- if g.email != blank %}
+{%- if g.email.size > 0 %}
 <section class="section section--ink on-dark" id="contact">
-  <div class="wrap wrap--narrow">
-    <h2>Book us or say hi</h2>
-    <p class="lede">{{ g.booking_text }}</p>
-    <p><a class="btn btn--sun" href="mailto:{{ g.email }}">Email {{ g.email }}</a></p>
+  <div class="wrap contact">
+    <div class="contact__text">
+      <h2>Book us or say hi</h2>
+      <p class="lede">{{ g.booking_text }}</p>
+    </div>
+    <div class="contact__actions">
+      <a class="btn btn--sun" href="mailto:{{ g.email }}">Email us</a>
+      {%- for s in g.socials %}{% if s.url.size > 0 %}
+      <a class="btn btn--ghost" href="{{ s.url }}" rel="noopener">{{ s.name }}</a>
+      {%- endif %}{% endfor %}
+    </div>
   </div>
 </section>
 {%- endif %}

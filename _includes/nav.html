@@ -3,20 +3,20 @@
 <header class="site-header on-dark">
   <div class="wrap site-header__in">
     <a class="brand" href="{{ home }}">
-      {%- if g.logo != blank -%}
+      {%- if g.logo.size > 0 -%}
         <img class="brand__logo" src="{{ '/assets/images/' | append: g.logo | relative_url }}" alt="">
       {%- else -%}
         {% include mark.html %}
       {%- endif -%}
       <span class="brand__name">{{ g.name }}</span>
     </a>
-    <nav aria-label="Main">
-      <ul class="nav">
+    <nav class="nav" aria-label="Main">
+      <ul class="nav__list">
         <li><a href="{{ home }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a></li>
         {%- if site.data.videos.size > 0 %}<li><a href="{{ home }}#watch">Watch</a></li>{% endif -%}
         {%- if site.data.shows.size > 0 %}<li><a href="{{ home }}#shows">Shows</a></li>{% endif -%}
         <li><a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a></li>
-        {%- if g.email != blank %}<li><a href="{{ home }}#contact">Contact</a></li>{% endif -%}
+        {%- if g.email.size > 0 %}<li class="nav__cta"><a href="{{ home }}#contact">Book us</a></li>{% endif -%}
       </ul>
     </nav>
   </div>

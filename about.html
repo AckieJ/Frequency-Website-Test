@@ -32,7 +32,7 @@ permalink: /about/
       {%- for img in a.story_images %}
       <figure class="figure">
         {% include photo.html file=img.file folder="about" alt=img.alt class="figure__img" %}
-        {%- if img.caption != blank and img.file != blank %}<figcaption>{{ img.caption }}</figcaption>{% endif %}
+        {%- if img.caption.size > 0 and img.file.size > 0 %}<figcaption>{{ img.caption }}</figcaption>{% endif %}
       </figure>
       {%- endfor %}
     </div>
@@ -52,7 +52,7 @@ permalink: /about/
           <h3>{{ m.title }}</h3>
           <p>{{ m.text }}</p>
         </div>
-        {%- if m.image != blank %}
+        {%- if m.image.size > 0 %}
         <div class="timeline__photo">{% include photo.html file=m.image folder="about" alt=m.title class="timeline__img" %}</div>
         {%- endif %}
       </li>
@@ -67,7 +67,7 @@ permalink: /about/
   <div class="wrap">
     <header class="section__head section__head--stack">
       <h2>{{ a.board_title | default: "Meet the board" }}</h2>
-      {%- if a.board_intro != blank %}<p class="section__sub">{{ a.board_intro }}</p>{% endif %}
+      {%- if a.board_intro.size > 0 %}<p class="section__sub">{{ a.board_intro }}</p>{% endif %}
     </header>
     <ul class="board">
       {%- for m in board %}
@@ -76,11 +76,11 @@ permalink: /about/
           {% include photo.html file=m.photo folder="board" alt=m.name class="member__img" %}
         </div>
         <h3 class="member__name">{{ m.name }}</h3>
-        {%- if m.role != blank %}<p class="member__role">{{ m.role }}</p>{% endif %}
+        {%- if m.role.size > 0 %}<p class="member__role">{{ m.role }}</p>{% endif %}
         <dl class="member__facts">
-          {%- if m.major != blank %}<div><dt>Major</dt><dd>{{ m.major }}</dd></div>{% endif %}
-          {%- if m.part != blank %}<div><dt>Part</dt><dd>{{ m.part }}</dd></div>{% endif %}
-          {%- if m.fun_fact != blank %}<div><dt>Fun fact</dt><dd>{{ m.fun_fact }}</dd></div>{% endif %}
+          {%- if m.major.size > 0 %}<div><dt>Major</dt><dd>{{ m.major }}</dd></div>{% endif %}
+          {%- if m.part.size > 0 %}<div><dt>Part</dt><dd>{{ m.part }}</dd></div>{% endif %}
+          {%- if m.fun_fact.size > 0 %}<div><dt>Fun fact</dt><dd>{{ m.fun_fact }}</dd></div>{% endif %}
         </dl>
       </li>
       {%- endfor %}

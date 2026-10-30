@@ -4,10 +4,10 @@
   Usage: {% include photo.html file=member.photo folder="board" alt="Photo of Jane" class="member__img" %}
 {%- endcomment -%}
 {%- assign dir = "/assets/images/" -%}
-{%- if include.folder != blank -%}
+{%- if include.folder.size > 0 -%}
   {%- assign dir = dir | append: include.folder | append: "/" -%}
 {%- endif -%}
-{%- if include.file != blank -%}
+{%- if include.file.size > 0 -%}
 <img class="{{ include.class }}" src="{{ dir | append: include.file | relative_url }}" alt="{{ include.alt | escape }}" loading="{{ include.loading | default: 'lazy' }}" decoding="async">
 {%- else -%}
 <div class="placeholder {{ include.class }}" aria-hidden="true">{% include mark.html %}</div>
