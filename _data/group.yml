@@ -12,7 +12,7 @@ intro: "Replace this with two or three sentences about your sound, your shows, a
 # ---- LOGO -------------------------------------------------------
 # Upload your logo into the folder  assets/images/  then type its file name here.
 # Leave it empty ("") to use the sound-wave mark that comes with the site.
-logo: "freq logo.png"            # example: "logo.png"
+logo: "freq-logo.png"            # example: "logo.png"
 
 # ---- HOME PAGE GROUP PHOTO ---------------------------------------
 # Upload into  assets/images/hero/  then type the file name here.
