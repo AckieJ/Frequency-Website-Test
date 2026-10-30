@@ -2,6 +2,26 @@
 (function () {
   'use strict';
 
+  /* Accessible mobile navigation; closes after selecting a link. */
+  var navToggle = document.querySelector('.nav-toggle');
+  var primaryNav = document.getElementById('primary-navigation');
+  if (navToggle && primaryNav) {
+    function setNav(open) {
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      primaryNav.classList.toggle('nav--open', open);
+    }
+    navToggle.addEventListener('click', function () {
+      setNav(navToggle.getAttribute('aria-expanded') !== 'true');
+    });
+    primaryNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setNav(false); });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') setNav(false);
+    });
+  }
+
   /* 1. Click a video thumbnail to play it right on the page.
         Without JavaScript the thumbnail is simply a link to YouTube. */
   document.querySelectorAll('a[data-video-id]').forEach(function (link) {

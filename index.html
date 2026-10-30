@@ -10,6 +10,7 @@ title: Home
 <section class="hero on-dark">
   <div class="wrap hero__grid">
     <div class="hero__text">
+      <p class="eyebrow hero__eyebrow"><span class="live-dot"></span> UC SAN DIEGO · A CAPPELLA</p>
       <div class="hero__logo">
         {%- if g.logo.size > 0 -%}
           <img src="{{ '/assets/images/' | append: g.logo | relative_url }}" alt="{{ g.name | escape }} logo">
@@ -17,7 +18,8 @@ title: Home
           {% include mark.html %}
         {%- endif -%}
       </div>
-      <h1 class="hero__name">{{ g.name }}</h1>
+      <h1 class="hero__name">Find your<br><em>frequency.</em></h1>
+      <p class="hero__identity">{{ g.name }}</p>
       <p class="hero__tagline">{{ g.tagline }}</p>
       <div class="hero__actions">
         {%- if videos.size > 0 %}<a class="btn btn--sun" href="#watch">Watch us sing</a>{% endif -%}
@@ -25,6 +27,7 @@ title: Home
       </div>
     </div>
     <div class="hero__photo">
+      <div class="hero__orbit" aria-hidden="true"><span>FEEL THE MUSIC · FIND YOUR PEOPLE · </span></div>
       {% include photo.html file=g.hero_photo folder="hero" alt=g.hero_photo_alt loading="eager" class="hero__img" %}
     </div>
   </div>
@@ -34,8 +37,9 @@ title: Home
 </section>
 
 {%- if g.intro.size > 0 %}
-<section class="section">
-  <div class="wrap">
+<section class="section intro-section">
+  <div class="wrap intro-section__grid">
+    <div><p class="eyebrow">01 / THE SOUND</p><h2>More than<br><em>just music.</em></h2></div>
     <p class="lede lede--ink">{{ g.intro }}</p>
   </div>
 </section>
@@ -45,7 +49,7 @@ title: Home
 <section class="section section--tint" id="watch">
   <div class="wrap">
     <header class="section__head">
-      <h2>Watch</h2>
+      <div><p class="eyebrow">02 / TURN IT UP</p><h2>Hear us <em>live.</em></h2></div>
       {%- if g.youtube_channel.size > 0 %}
       <a class="textlink" href="{{ g.youtube_channel }}" rel="noopener">All our videos on YouTube</a>
       {%- endif %}
@@ -62,7 +66,7 @@ title: Home
 {%- if shows.size > 0 %}
 <section class="section" id="shows">
   <div class="wrap wrap--narrow">
-    <header class="section__head"><h2>Shows</h2></header>
+    <header class="section__head"><div><p class="eyebrow">03 / FIND US ON STAGE</p><h2>Coming <em>up.</em></h2></div></header>
     <ol class="shows" id="shows-upcoming">
       {%- for s in shows %}
       <li class="show" data-date="{{ s.date }}">
@@ -94,7 +98,7 @@ title: Home
 {%- if gallery.size > 0 %}
 <section class="section section--tint" id="photos">
   <div class="wrap">
-    <header class="section__head"><h2>Photos</h2></header>
+    <header class="section__head"><div><p class="eyebrow">04 / BEHIND THE MUSIC</p><h2>In the <em>moment.</em></h2></div></header>
     <ul class="gallery">
       {%- for p in gallery %}
       <li class="gallery__item">
@@ -111,7 +115,8 @@ title: Home
 <section class="section section--ink on-dark" id="contact">
   <div class="wrap contact">
     <div class="contact__text">
-      <h2>Book us or say hi</h2>
+      <p class="eyebrow">LET’S MAKE SOME NOISE</p>
+      <h2>Let’s make<br><em>something happen.</em></h2>
       <p class="lede">{{ g.booking_text }}</p>
     </div>
     <div class="contact__actions">
