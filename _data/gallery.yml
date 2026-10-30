@@ -1,0 +1,31 @@
+# ============================================================
+#  PHOTO GALLERY  (home page)
+#  Upload photos to  assets/images/gallery/  and add a block for each one.
+#  alt:     a short description for people who cannot see the photo
+#  caption: optional text under the photo
+#  A block with file: "" shows a placeholder tile until you add a photo.
+# ============================================================
+
+- file: ""
+  alt: "The group performing on stage"
+  caption: ""
+
+- file: ""
+  alt: "Rehearsal"
+  caption: ""
+
+- file: ""
+  alt: "The group together after a show"
+  caption: ""
+
+- file: ""
+  alt: "Close-up of the group singing"
+  caption: ""
+
+- file: ""
+  alt: "A performance on campus"
+  caption: ""
+
+- file: ""
+  alt: "The group at a retreat or social"
+  caption: ""

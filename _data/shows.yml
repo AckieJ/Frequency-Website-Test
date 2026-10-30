@@ -1,0 +1,25 @@
+# ============================================================
+#  SHOWS AND EVENTS
+#  Add a block for each show. The website sorts them by date and moves past
+#  shows into a "Past shows" list on its own, so you never have to delete them.
+#
+#  date: must look exactly like "2026-11-14"  (year-month-day, with the quotes)
+#  link: a ticket or info page. Leave "" for no button.
+#  Everything below is a sample. Replace or delete it.
+# ============================================================
+
+- date: "2026-12-05"
+  title: "Winter Show"
+  venue: "Campus venue name"
+  time: "7:00 PM"
+  note: "Free for students."
+  link: ""
+  link_text: "Details"
+
+- date: "2027-02-20"
+  title: "Winter Quarter Showcase"
+  venue: "Campus venue name"
+  time: "6:30 PM"
+  note: ""
+  link: ""
+  link_text: "Tickets"

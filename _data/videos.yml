@@ -1,0 +1,23 @@
+# ============================================================
+#  PERFORMANCE VIDEOS  (the "Watch" section on the home page)
+#  The FIRST video is shown large. The rest sit beside or below it.
+#
+#  To add a video:
+#    1. Copy a whole block (the three lines starting with a dash).
+#    2. Paste the YouTube link next to url:  (just copy it from your browser's address bar)
+#    3. Type a title.
+#  Newest first is a good habit. To remove a video, delete its block.
+#  A block with url: "" shows a placeholder card until you add a link.
+# ============================================================
+
+- title: "Your best recent performance"
+  url: ""             # example: "https://www.youtube.com/watch?v=XXXXXXXXXXX"
+  note: "Where and when it was recorded"
+
+- title: "Another favorite"
+  url: ""
+  note: ""
+
+- title: "One more to show off"
+  url: ""
+  note: ""

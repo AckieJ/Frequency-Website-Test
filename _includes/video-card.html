@@ -1,0 +1,30 @@
+{%- comment -%}
+  One YouTube video. Accepts normal watch links, youtu.be links, /shorts/ and /embed/ links.
+  Usage: {% include video-card.html video=video featured=forloop.first %}
+{%- endcomment -%}
+{%- assign url = include.video.url | default: "" -%}
+{%- assign vid = "" -%}
+{%- if url contains "youtu.be/" -%}
+  {%- assign vid = url | split: "youtu.be/" | last | split: "?" | first -%}
+{%- elsif url contains "/shorts/" -%}
+  {%- assign vid = url | split: "/shorts/" | last | split: "?" | first -%}
+{%- elsif url contains "/embed/" -%}
+  {%- assign vid = url | split: "/embed/" | last | split: "?" | first -%}
+{%- elsif url contains "v=" -%}
+  {%- assign vid = url | split: "v=" | last | split: "&" | first -%}
+{%- endif -%}
+<article class="video{% if include.featured %} video--featured{% endif %}">
+  {%- if vid != "" %}
+  <a class="video__thumb" href="https://www.youtube.com/watch?v={{ vid }}" data-video-id="{{ vid }}" data-title="{{ include.video.title | escape }}" rel="noopener">
+    <img src="https://i.ytimg.com/vi/{{ vid }}/hqdefault.jpg" alt="" loading="lazy">
+    <span class="video__play" aria-hidden="true"></span>
+    <span class="visually-hidden">Watch {{ include.video.title }} on YouTube</span>
+  </a>
+  {%- else %}
+  <div class="video__thumb video__thumb--empty" aria-hidden="true">{% include mark.html %}</div>
+  {%- endif %}
+  <h3 class="video__title">{{ include.video.title }}</h3>
+  {%- if include.video.note != blank %}
+  <p class="video__note">{{ include.video.note }}</p>
+  {%- endif %}
+</article>

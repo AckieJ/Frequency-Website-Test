@@ -1,0 +1,118 @@
+---
+layout: default
+title: Home
+---
+{%- assign g = site.data.group -%}
+{%- assign videos = site.data.videos -%}
+{%- assign shows = site.data.shows | sort: "date" -%}
+{%- assign gallery = site.data.gallery -%}
+
+<section class="hero on-dark">
+  <div class="wrap hero__grid">
+    <div class="hero__text">
+      <div class="hero__logo">
+        {%- if g.logo != blank -%}
+          <img src="{{ '/assets/images/' | append: g.logo | relative_url }}" alt="{{ g.name | escape }} logo">
+        {%- else -%}
+          {% include mark.html %}
+        {%- endif -%}
+      </div>
+      <h1 class="hero__name">{{ g.name }}</h1>
+      <p class="hero__tagline">{{ g.tagline }}</p>
+      <div class="hero__actions">
+        {%- if videos.size > 0 %}<a class="btn btn--sun" href="#watch">Watch us sing</a>{% endif -%}
+        {%- if g.email != blank %}<a class="btn btn--ghost" href="#contact">Book us</a>{% endif -%}
+      </div>
+    </div>
+    <div class="hero__photo">
+      {% include photo.html file=g.hero_photo folder="hero" alt=g.hero_photo_alt loading="eager" class="hero__img" %}
+    </div>
+  </div>
+  <div class="wave" aria-hidden="true">
+    {%- for i in (1..72) -%}<span style="--i:{{ i }}"></span>{%- endfor -%}
+  </div>
+</section>
+
+{%- if g.intro != blank %}
+<section class="section">
+  <div class="wrap">
+    <p class="lede lede--ink">{{ g.intro }}</p>
+  </div>
+</section>
+{%- endif %}
+
+{%- if videos.size > 0 %}
+<section class="section section--tint" id="watch">
+  <div class="wrap">
+    <header class="section__head">
+      <h2>Watch</h2>
+      {%- if g.youtube_channel != blank %}
+      <a class="textlink" href="{{ g.youtube_channel }}" rel="noopener">All our videos on YouTube</a>
+      {%- endif %}
+    </header>
+    <div class="videos">
+      {%- for video in videos %}
+        {% include video-card.html video=video featured=forloop.first %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if shows.size > 0 %}
+<section class="section" id="shows">
+  <div class="wrap wrap--narrow">
+    <header class="section__head"><h2>Shows</h2></header>
+    <ol class="shows" id="shows-upcoming">
+      {%- for s in shows %}
+      <li class="show" data-date="{{ s.date }}">
+        <time class="show__date" datetime="{{ s.date }}">
+          <span class="show__day">{{ s.date | date: "%-d" }}</span>
+          <span class="show__mon">{{ s.date | date: "%b" }}</span>
+          <span class="show__year">{{ s.date | date: "%Y" }}</span>
+        </time>
+        <div class="show__body">
+          <h3 class="show__title">{{ s.title }}</h3>
+          <p class="show__where">{{ s.venue }}{% if s.time != blank %}, {{ s.time }}{% endif %}</p>
+          {%- if s.note != blank %}<p class="show__note">{{ s.note }}</p>{% endif %}
+        </div>
+        {%- if s.link != blank %}
+        <a class="btn btn--ink btn--small" href="{{ s.link }}" rel="noopener">{{ s.link_text | default: "Details" }}</a>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ol>
+    <p class="empty" id="shows-empty" hidden>No shows on the calendar right now. Follow us to hear first.</p>
+    <details class="past" id="shows-past-wrap" hidden>
+      <summary>Past shows</summary>
+      <ol class="shows" id="shows-past"></ol>
+    </details>
+  </div>
+</section>
+{%- endif %}
+
+{%- if gallery.size > 0 %}
+<section class="section section--tint" id="photos">
+  <div class="wrap">
+    <header class="section__head"><h2>Photos</h2></header>
+    <ul class="gallery">
+      {%- for p in gallery %}
+      <li class="gallery__item">
+        {% include photo.html file=p.file folder="gallery" alt=p.alt class="gallery__img" %}
+        {%- if p.caption != blank and p.file != blank %}<span class="gallery__caption">{{ p.caption }}</span>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
+{%- if g.email != blank %}
+<section class="section section--ink on-dark" id="contact">
+  <div class="wrap wrap--narrow">
+    <h2>Book us or say hi</h2>
+    <p class="lede">{{ g.booking_text }}</p>
+    <p><a class="btn btn--sun" href="mailto:{{ g.email }}">Email {{ g.email }}</a></p>
+  </div>
+</section>
+{%- endif %}

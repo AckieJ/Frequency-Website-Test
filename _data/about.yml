@@ -1,0 +1,47 @@
+# ============================================================
+#  ABOUT PAGE
+#  Edit the text between the quotation marks. Keep the quotes.
+#  Board members live in their own file: _data/board.yml
+# ============================================================
+
+page_title: "About us"
+intro: "Replace this with a short introduction to the group: who you are and what you love to sing."
+
+# The big year in the page header.
+founded: "20XX"
+founded_note: "Founded at UC San Diego in"
+
+# ---- OUR STORY ---------------------------------------------------
+# Each line starting with a dash is one paragraph. Add more by copying a line.
+story_title: "How we started"
+story:
+  - "Replace this with the story of how The Frequency began: who started it, and why."
+  - "Add a second paragraph about how the group has grown since then."
+
+# Photos beside the story. Upload to  assets/images/about/  and type the file name.
+# Add more photos by copying the three lines that start with a dash.
+story_images:
+  - file: ""
+    alt: "Describe the photo for people who cannot see it"
+    caption: ""
+  - file: ""
+    alt: "Describe the photo for people who cannot see it"
+    caption: ""
+
+# ---- TIMELINE (optional) -----------------------------------------
+# Big moments in the group's history. Delete this whole block if you don't want a timeline.
+# Photos go in  assets/images/about/
+timeline_title: "Along the way"
+milestones:
+  - year: "20XX"
+    title: "Our first show"
+    text: "Replace this with a sentence or two about this moment."
+    image: ""
+  - year: "20XX"
+    title: "A milestone worth remembering"
+    text: "Replace this with a sentence or two about this moment."
+    image: ""
+
+# ---- BOARD HEADING -----------------------------------------------
+board_title: "Meet the board"
+board_intro: "The people who keep The Frequency running this year."

@@ -1,0 +1,54 @@
+# ============================================================
+#  BOARD MEMBERS
+#  One block per person. Each block starts with a dash.
+#  To add a person: copy a whole block and paste it below the last one.
+#  To remove a person: delete their whole block.
+#  New board next year? Just edit each block in place.
+#
+#  photo: upload the picture to  assets/images/board/  and type its file name.
+#         Leave "" to show a placeholder until you have one.
+#  part:  Soprano, Alto, Tenor, Baritone, Bass, Vocal percussion, or whatever you use.
+#  Names below are samples. Replace them.
+# ============================================================
+
+- name: "Sample Name"
+  role: "President"
+  major: "Your major"
+  part: "Tenor"
+  fun_fact: "Replace this with something fun and true about them."
+  photo: ""
+
+- name: "Sample Name"
+  role: "Music Director"
+  major: "Your major"
+  part: "Alto"
+  fun_fact: "Replace this with something fun and true about them."
+  photo: ""
+
+- name: "Sample Name"
+  role: "Vice President"
+  major: "Your major"
+  part: "Bass"
+  fun_fact: "Replace this with something fun and true about them."
+  photo: ""
+
+- name: "Sample Name"
+  role: "Treasurer"
+  major: "Your major"
+  part: "Soprano"
+  fun_fact: "Replace this with something fun and true about them."
+  photo: ""
+
+- name: "Sample Name"
+  role: "Social Media Manager"
+  major: "Your major"
+  part: "Baritone"
+  fun_fact: "Replace this with something fun and true about them."
+  photo: ""
+
+- name: "Sample Name"
+  role: "Events Coordinator"
+  major: "Your major"
+  part: "Vocal percussion"
+  fun_fact: "Replace this with something fun and true about them."
+  photo: ""

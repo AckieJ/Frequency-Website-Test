@@ -1,0 +1,47 @@
+# ============================================================
+#  THE BASICS  (shown on every page)
+#  Edit the text between the quotation marks. Keep the quotes.
+# ============================================================
+
+name: "The Frequency"
+tagline: "A cappella at UC San Diego."
+
+# A few sentences about the group, shown on the home page under "Watch".
+intro: "Replace this with two or three sentences about your sound, your shows, and who you are."
+
+# ---- LOGO -------------------------------------------------------
+# Upload your logo into the folder  assets/images/  then type its file name here.
+# Leave it empty ("") to use the sound-wave mark that comes with the site.
+logo: ""            # example: "logo.png"
+
+# ---- HOME PAGE GROUP PHOTO ---------------------------------------
+# Upload into  assets/images/hero/  then type the file name here.
+hero_photo: ""      # example: "group-photo-2026.jpg"
+hero_photo_alt: "The Frequency posing together on stage"
+
+# ---- CONTACT -----------------------------------------------------
+email: "yourgroupemail@example.com"       # REPLACE with your real group email
+booking_text: "Want us at your event, show, or fundraiser? Send us a note and we will get back to you."
+
+# Link to your YouTube channel. Leave "" to hide the button.
+youtube_channel: ""   # example: "https://www.youtube.com/@yourchannel"
+
+# Social links. Any link left empty ("") is hidden. Add more by copying a pair of lines.
+socials:
+  - name: "Instagram"
+    url: ""
+  - name: "YouTube"
+    url: ""
+  - name: "TikTok"
+    url: ""
+  - name: "Spotify"
+    url: ""
+
+# ---- AUDITIONS BANNER --------------------------------------------
+# Change open to true to show a yellow banner at the top of every page.
+# Change it back to false when auditions are over.
+auditions:
+  open: false
+  message: "Auditions are open!"
+  link: ""            # example: "https://forms.gle/yourform"
+  link_text: "Sign up"
