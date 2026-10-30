@@ -10,7 +10,7 @@ lang: en
 # AckieJ/Frequency-Website-Test. If you move to a custom domain (like
 # frequency.org), change baseurl to "" and url to the new address.
 url: "https://ackiej.github.io"
-baseurl: "/Frequency-Website-Test"
+baseurl: "/frequency-website-test"
 
 markdown: kramdown
 permalink: pretty
