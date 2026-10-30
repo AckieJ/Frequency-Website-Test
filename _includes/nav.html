@@ -2,7 +2,7 @@
 {%- assign home = '/' | relative_url -%}
 <header class="site-header on-dark">
   <div class="wrap site-header__in">
-    <a class="brand" href="{{ home }}">
+    <a class="brand" href="#top">
       {%- if g.logo.size > 0 -%}
         <img class="brand__logo" src="{{ '/assets/images/' | append: g.logo | relative_url }}" alt="">
       {%- else -%}
@@ -13,11 +13,11 @@
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation"><span></span><span></span><span></span></button>
     <nav class="nav" id="primary-navigation" aria-label="Main">
       <ul class="nav__list">
-        <li><a href="{{ home }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a></li>
-        {%- if site.data.videos.size > 0 %}<li><a href="{{ home }}#watch">Watch</a></li>{% endif -%}
-        {%- if site.data.shows.size > 0 %}<li><a href="{{ home }}#shows">Shows</a></li>{% endif -%}
-        <li><a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a></li>
-        {%- if g.email.size > 0 %}<li class="nav__cta"><a href="{{ home }}#contact">Book us</a></li>{% endif -%}
+        <li><a href="#top">Home</a></li>
+        {%- if site.data.videos.size > 0 %}<li><a href="#watch">Watch</a></li>{% endif -%}
+        {%- if site.data.shows.size > 0 %}<li><a href="#shows">Shows</a></li>{% endif -%}
+        <li><a href="#about">About</a></li>
+        {%- if g.email.size > 0 %}<li class="nav__cta"><a href="#contact">Book us</a></li>{% endif -%}
       </ul>
     </nav>
   </div>

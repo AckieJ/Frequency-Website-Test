@@ -1,0 +1,90 @@
+<div id="about" class="about-on-home">
+{%- assign a = site.data.about -%}
+{%- assign board = site.data.board -%}
+
+<header class="pagehead on-dark">
+  <div class="wrap pagehead__grid">
+    <div class="pagehead__text">
+      <p class="eyebrow">THE PEOPLE BEHIND THE SOUND</p>
+      <h1>{{ a.page_title }}</h1>
+      <p class="lede">{{ a.intro }}</p>
+    </div>
+    <p class="founded">
+      <span class="founded__note">{{ a.founded_note }}</span>
+      <span class="founded__year">{{ a.founded }}</span>
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap story">
+    <div class="story__text">
+      <p class="eyebrow">01 / OUR STORY</p>
+      <h2>{{ a.story_title | default: "How we started" }}</h2>
+      {%- for paragraph in a.story %}
+      <p>{{ paragraph }}</p>
+      {%- endfor %}
+    </div>
+    {%- if a.story_images.size > 0 %}
+    <div class="story__images">
+      {%- for img in a.story_images %}
+      <figure class="figure">
+        {% include photo.html file=img.file folder="about" alt=img.alt class="figure__img" %}
+        {%- if img.caption.size > 0 and img.file.size > 0 %}<figcaption>{{ img.caption }}</figcaption>{% endif %}
+      </figure>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+{%- if a.milestones.size > 0 %}
+<section class="section section--tint">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow">02 / THE JOURNEY</p>
+    <h2>{{ a.timeline_title | default: "Along the way" }}</h2>
+    <ol class="timeline">
+      {%- for m in a.milestones %}
+      <li class="timeline__item">
+        <p class="timeline__year">{{ m.year }}</p>
+        <div class="timeline__body">
+          <h3>{{ m.title }}</h3>
+          <p>{{ m.text }}</p>
+        </div>
+        {%- if m.image.size > 0 %}
+        <div class="timeline__photo">{% include photo.html file=m.image folder="about" alt=m.title class="timeline__img" %}</div>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+{%- endif %}
+
+{%- if board.size > 0 %}
+<section class="section" id="board">
+  <div class="wrap">
+    <header class="section__head section__head--stack">
+      <div><p class="eyebrow">03 / MEET THE CREW</p><h2>{{ a.board_title | default: "Meet the board" }}</h2></div>
+      {%- if a.board_intro.size > 0 %}<p class="section__sub">{{ a.board_intro }}</p>{% endif %}
+    </header>
+    <ul class="board">
+      {%- for m in board %}
+      <li class="member">
+        <div class="member__photo">
+          {% include photo.html file=m.photo folder="board" alt=m.name class="member__img" %}
+        </div>
+        <h3 class="member__name">{{ m.name }}</h3>
+        {%- if m.role.size > 0 %}<p class="member__role">{{ m.role }}</p>{% endif %}
+        <dl class="member__facts">
+          {%- if m.major.size > 0 %}<div><dt>Major</dt><dd>{{ m.major }}</dd></div>{% endif %}
+          {%- if m.part.size > 0 %}<div><dt>Part</dt><dd>{{ m.part }}</dd></div>{% endif %}
+          {%- if m.fun_fact.size > 0 %}<div><dt>Fun fact</dt><dd>{{ m.fun_fact }}</dd></div>{% endif %}
+        </dl>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+</div>

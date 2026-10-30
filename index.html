@@ -7,7 +7,7 @@ title: Home
 {%- assign shows = site.data.shows | sort: "date" -%}
 {%- assign gallery = site.data.gallery -%}
 
-<section class="hero on-dark">
+<section class="hero on-dark" id="top">
   <div class="wrap hero__grid">
     <div class="hero__text">
       <p class="eyebrow hero__eyebrow"><span class="live-dot"></span> UC SAN DIEGO · A CAPPELLA</p>
@@ -110,6 +110,8 @@ title: Home
   </div>
 </section>
 {%- endif %}
+
+{% include about-on-home.html %}
 
 {%- if g.email.size > 0 %}
 <section class="section section--ink on-dark" id="contact">
